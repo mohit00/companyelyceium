@@ -559,13 +559,11 @@
                     <mat-tab label="Staf">
 
                         <!-- WIDGET GROUP -->
-                        <div class="widget-group" fxLayout="row" fxFlex="100"  *fuseIfOnDom [@animateStagger]="{value:'50'}">
+                        <!-- <div class="widget-group" fxLayout="row" fxFlex="100"  *fuseIfOnDom [@animateStagger]="{value:'50'}"  >
 
-                            <!-- WIDGET 11 -->
-                            <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="row" fxFlex="100">
+                             <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="row" fxFlex="100">
 
-                                <!-- Front -->
-                                <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
+                                 <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
 
                                     <div class="p-24 mb-8 border-bottom" fxLayout="row" fxLayoutAlign="space-between center">
                                         <div class="h2">{{widgets.widget11.title}}</div>
@@ -576,8 +574,7 @@
 
                                     <mat-table #table [dataSource]="widget11.dataSource">
 
-                                        <!-- Avatar Column -->
-                                        <ng-container cdkColumnDef="avatar">
+                                         <ng-container cdkColumnDef="avatar">
                                             <mat-header-cell fxFlex="64px" *cdkHeaderCellDef></mat-header-cell>
                                             <mat-cell fxFlex="64px" *cdkCellDef="let contact">
                                                 <img class="avatar" *ngIf="contact.avatar" [alt]="contact.name"
@@ -585,16 +582,14 @@
                                             </mat-cell>
                                         </ng-container>
 
-                                        <!-- Name Column -->
-                                        <ng-container cdkColumnDef="name">
+                                         <ng-container cdkColumnDef="name">
                                             <mat-header-cell *cdkHeaderCellDef>Name</mat-header-cell>
                                             <mat-cell *cdkCellDef="let contact">
                                                 <p class="text-truncate font-weight-600">{{contact.name}} {{contact.lastName}}</p>
                                             </mat-cell>
                                         </ng-container>
 
-                                        <!-- Position Column -->
-                                        <ng-container cdkColumnDef="position">
+                                         <ng-container cdkColumnDef="position">
                                             <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-sm>Position</mat-header-cell>
                                             <mat-cell *cdkCellDef="let contact" fxHide fxShow.gt-sm>
                                                 <p class="position text-truncate">
@@ -603,8 +598,7 @@
                                             </mat-cell>
                                         </ng-container>
 
-                                        <!-- Office Column -->
-                                        <ng-container cdkColumnDef="office">
+                                         <ng-container cdkColumnDef="office">
                                             <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-md>Office</mat-header-cell>
                                             <mat-cell *cdkCellDef="let contact" fxHide fxShow.gt-md>
                                                 <p class="office text-truncate">
@@ -614,8 +608,7 @@
                                         </ng-container>
 
 
-                                        <!-- Email Column -->
-                                        <ng-container cdkColumnDef="email">
+                                         <ng-container cdkColumnDef="email">
                                             <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-sm>Email</mat-header-cell>
                                             <mat-cell *cdkCellDef="let contact" fxHide fxShow.gt-sm>
                                                 <p class="email text-truncate">
@@ -624,8 +617,7 @@
                                             </mat-cell>
                                         </ng-container>
 
-                                        <!-- Phone Column -->
-                                        <ng-container cdkColumnDef="phone">
+                                         <ng-container cdkColumnDef="phone">
                                             <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-md>Phone</mat-header-cell>
                                             <mat-cell *cdkCellDef="let contact" fxHide fxShow.gt-md>
                                                 <p class="phone text-truncate">
@@ -639,12 +631,10 @@
                                         </mat-row>
                                     </mat-table>
                                 </div>
-                                <!-- / Front -->
-
+ 
                             </fuse-widget>
-                            <!-- / WIDGET 11 -->
-
-                        </div>
+ 
+                        </div> -->
                         <!-- / WIDGET GROUP -->
 
                     </mat-tab>

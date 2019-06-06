@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { ProjectsDashboardService } from './projects.service';
-import * as shape from 'd3-shape';
+ import * as shape from 'd3-shape';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { DataSource } from '@angular/cdk/collections';
@@ -17,8 +16,7 @@ import { ProjectWebService } from './project.webservice';
 export class FuseProjectComponent implements OnInit, OnDestroy
 {
     projects: any[];
-    selectedProject: any;
-
+ 
     widgets: any;
     bardata: any = {};
 
@@ -121,8 +119,7 @@ studentWeeklyGet(){
                    })
             }
             if(res.data[i].week  == this.getNumberOfWeek()-2){
-                alert("2l")
-                this.bardata.mainChart['2W'].push({
+                 this.bardata.mainChart['2W'].push({
                     
                     "name":res.data[i].day,
                     "series":[
@@ -143,7 +140,7 @@ studentWeeklyGet(){
       
 })
 }
-    constructor(private WebService:ProjectWebService, private projectsDashboardService: ProjectsDashboardService)
+    constructor(private WebService:ProjectWebService )
     { 
         this.studentWeeklyGet();
         this.WebService.getDashboard().subscribe(res=>{
@@ -156,12 +153,9 @@ studentWeeklyGet(){
         })
       
            this.userName =  this.WebService.userName;
-        this.projects = this.projectsDashboardService.projects;
-
-        this.selectedProject = this.projects[0];
-
-        this.widgets = this.projectsDashboardService.widgets;
-
+ 
+ 
+ 
         /**
          * Widget 5
          */
@@ -291,9 +285,9 @@ studentWeeklyGet(){
          * Widget 11
          */
          this.eventType();
-        this.widget11.onContactsChanged = new BehaviorSubject({});
-        this.widget11.onContactsChanged.next(this.widgets.widget11.table.rows);
-        this.widget11.dataSource = new FilesDataSource(this.widget11);
+        // this.widget11.onContactsChanged = new BehaviorSubject({});
+        // this.widget11.onContactsChanged.next(this.widgets.widget11.table.rows);
+        // this.widget11.dataSource = new FilesDataSource(this.widget11);
     }
 
     ngOnDestroy()

@@ -10,10 +10,8 @@ import { DatePipe } from '@angular/common';
 const routes: Routes = [
     {
         path     : '**',
-        component: FuseProjectComponent,
-        resolve  : {
-            data: ProjectsDashboardService
-        }
+        component: FuseProjectComponent 
+        
     }
 ];
 
