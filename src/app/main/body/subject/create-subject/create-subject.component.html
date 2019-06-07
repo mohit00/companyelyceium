@@ -103,7 +103,10 @@
             <mat-checkbox style ="   margin-left: 12px;" formControlName="IncludeUnit">Include Unit</mat-checkbox>
         
           </div>
-
+          <div class="col s12 m12 l12" style ="    padding-top: 27px;"  *ngIf="unitList.length >0">
+              <mat-progress-bar mode="determinate" [value]="total"></mat-progress-bar>
+          
+          </div>
           <div class="col s12 m12 l12" style ="padding-top:17px">
               <div class= "col s12 m12 l12"  *ngIf="unitList.length >0">
                   <table>
@@ -137,15 +140,23 @@
             
                     <button mat-raised-button color="primary" style ="    margin-top: 16px;"  *ngIf="secondFormGroup.value.IncludeUnit" (click) = "addUnit();">Add Unit</button>
                 </div>
-            </div>      
-             
+            </div>    
+            <div style ="margin-top:10px">  
+            <button mat-raised-button color="primary" matStepperPrevious style ="margin-top: 13px;" >Back</button>
+
+            <button mat-raised-button color="primary" matStepperNext  style ="margin-top: 13px;" >Next</button>
+            </div>
       </form>
     </mat-step>
 
     <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>Assign To</ng-template>
-
+          <div style ="margin-top:10px">  
+              <button mat-raised-button color="primary" matStepperPrevious >Back</button>
+  
+              <button mat-raised-button color="primary" matStepperNext >Next</button>
+              </div>
         </form>
       </mat-step>
   <mat-step>
