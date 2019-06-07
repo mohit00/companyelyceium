@@ -26,7 +26,11 @@ export class FuseProjectComponent implements OnInit, OnDestroy
     widget8: any = {};
     widget9: any = {};
     widget11: any = {};
-coursecount:any = {};
+coursecount:any = {
+    department:0,
+    courses:0,
+    NoOfStudent:0
+};
     dateNow = Date.now();
 userName:any = '';
 datacoursedept:any;
@@ -38,23 +42,26 @@ studentLeaveCount:number = 0;
 stafLeaveCount : number = 0;
 leaveGet(){
     this.WebService.getLeave().subscribe(res=>{
-        console.log(JSON.stringify(res.data))
-        if(res.data["1"]){
-            this.teacherLeaveCount = res.data["1"].length;
-
-        }
-        if(res.data["2"]){
-            this.studentLeaveCount = res.data["2"].length;
-
-        }
-        if(res.data["3"]){
-            this.stafLeaveCount = res.data["3"].length;
-
-        }
-                console.log(this.teacherLeaveCount )
-                console.log(  this.studentLeaveCount )
-                console.log(  this.stafLeaveCount )
-                this.leaveListcount  = this.teacherLeaveCount+this.studentLeaveCount+this.stafLeaveCount;
+            if(res.data["1"]){
+                if(res.data["1"]){
+                    this.teacherLeaveCount = res.data["1"].length;
+        
+                }
+                if(res.data["2"]){
+                    this.studentLeaveCount = res.data["2"].length;
+        
+                }
+                if(res.data["3"]){
+                    this.stafLeaveCount = res.data["3"].length;
+        
+                }  
+            }else{
+                this.teacherLeaveCount =0;
+                this.studentLeaveCount =0;
+                this.stafLeaveCount =0;
+            }
+        
+          this.leaveListcount  = this.teacherLeaveCount+this.studentLeaveCount+this.stafLeaveCount;
                     })
 }
 firstDayOfYear:any;
@@ -146,8 +153,20 @@ studentWeeklyGet(){
         this.WebService.getDashboard().subscribe(res=>{
             this.coursecount = JSON.parse(res.data);
             this.WebService.getDashboardStudent().subscribe(res1=>{
-                this.studentcount = JSON.parse(res1.data);
-                this.coursecount.NoOfStudent = this.studentcount.NoOfStudent;
+                if(res1.data){
+                    this.studentcount = JSON.parse(res1.data);
+                    if(this.studentcount.NoOfStudent){
+                        this.coursecount.NoOfStudent = this.studentcount.NoOfStudent;
+
+                    }else{
+                        this.coursecount.NoOfStudent =0;
+                    }
+    
+                }else{
+                    this.studentcount = 0;
+                    this.coursecount.NoOfStudent = 0;
+ 
+                }
                 this.leaveGet();
                         })
         })
