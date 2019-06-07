@@ -35,6 +35,11 @@
                 <mat-datepicker #picker2></mat-datepicker>
               </mat-form-field>    
             </div>
+            <div class="col s12 m4 l4" >
+                <mat-form-field   style ="   margin-left: 23px;  "class="example-full-width" >
+                   <input matInput placeholder="No Of Hour"   >
+                 </mat-form-field>
+                 </div>
           </div>
           <div class="col s12 m12 l12"    >
          
@@ -152,10 +157,37 @@
     <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>Assign To</ng-template>
+
+          <div class="col s4 m4 l4">
+              <mat-checkbox style ="    margin-left: 12px;"  >Private</mat-checkbox>
+        
+        </div>
+        <div class="col s12 m6 l6">
+                 <div class="col s12 m6 l6">
+            <mat-form-field style ="      margin-left: 23px;
+            width: 92%; 
+            " >
+                <mat-select placeholder="Assign To"  multiple  (selectionChange) ="test()" >
+                  <mat-option *ngFor ="let list of teacherList" [value] ="list.teacherId"  >{{list.fName + ' ' + list.mName + ' ' + list.lName}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+                </div>
+              <div class="col s12 m6 l6">
+          
+                  <mat-form-field style ="           margin-left: 10px "   >
+                      <mat-select placeholder="Class Teacher"   >
+                        <mat-option  *ngFor ="let list of testss" [value] ="list.teacherId"  >{{list.fName + ' ' + list.mName + ' ' + list.lName}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    </div>
+             
+                  
+          </div>
+          <div class ="clear"></div>
           <div style ="margin-top:10px">  
-              <button mat-raised-button color="primary" matStepperPrevious >Back</button>
+              <button mat-raised-button color="primary" matStepperPrevious style ="margin-top:10px">Back</button>
   
-              <button mat-raised-button color="primary" matStepperNext >Next</button>
+              <button mat-raised-button color="primary" matStepperNext style ="margin-top:10px" >Next</button>
               </div>
         </form>
       </mat-step>
