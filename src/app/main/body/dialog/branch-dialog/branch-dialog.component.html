@@ -15,7 +15,8 @@
 <mat-card>
    <div class ="row">
      <div class= "col l12 s12 m12">
-        <mat-form-field class= "col l12 s12 m12" >
+        <mat-form-field class= "col l12 s12 m12"appearance="outline">
+          <mat-label>Name</mat-label>
             <!-- <mat-icon matPreffix  style ="font-size:19px"> face</mat-icon>   -->
               <input matInput placeholder="Name" name ="name"   formControlName="branchName">
            
@@ -23,7 +24,8 @@
      </div>
      <div class= "col l12 s12 m12">
 
-        <mat-form-field class= "col l12 s12 m12">
+        <mat-form-field class= "col l12 s12 m12"appearance="outline">
+          <mat-label>Select Course</mat-label>
             <!-- <mat-icon matPreffix  style ="font-size:19px"> face</mat-icon>   -->
             <mat-select placeholder="Course"  name ="dep"  formControlName="courseId"  >
              <mat-option  *ngFor = "let department of data.CorsetList" [value] ="department.courseId" >{{department.courseName}}</mat-option>    

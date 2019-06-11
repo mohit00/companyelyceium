@@ -54,7 +54,7 @@ selectedProject:any;
   }
 addUser(){
   let dialogRef = this.dialog.open(SemisterDialogComponent, {
-    height: '350px',
+    height: '388px',
     width: '450px',
     data: {  type:'create'  }
  });
@@ -64,7 +64,7 @@ this.getdepList();
 }
 update(data){
    let dialogRef = this.dialog.open(SemisterDialogComponent, {
-    height: '350px',
+    height: '388px',
     width: '450px',
     data: {  type:'update', data:data}
  });

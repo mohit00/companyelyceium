@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { FuseConfigService } from '../../../../core/services/config.service';
 import { fuseAnimations } from '../../../../core/animations';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -20,6 +20,9 @@ export class CreateSubjectComponent implements OnInit {
   isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thridFormGroup:FormGroup;
+  forthormGroup:FormGroup;
+
   registerForm: FormGroup;
   registerFormErrors: any;
   tiles: any;
@@ -31,6 +34,30 @@ export class CreateSubjectComponent implements OnInit {
   picker2:any;
   createForm(){
     this.showClassTeacher = false;
+
+    this.firstFormGroup = this.formBuilder.group({
+      title: ['' ],
+      startDate           : ['' ],
+      endDate           : ['' ],
+      hourlyWorking           : [false],
+      noOfHour:[''],
+      description           : [''],
+
+
+    });
+    
+    this.secondFormGroup = this.formBuilder.group({
+      categoryId: ['' ],
+      priority:['']
+    });
+    this.thridFormGroup = this.formBuilder.group({
+      IncludeUnit:[false]
+    })
+    this.forthormGroup = this.formBuilder.group({
+      classTeacher           : [''],
+      assign_to           : [''],
+      private           : [''] 
+    })
     this.registerForm = this.formBuilder.group({
       startDate           : [''],
       endDate           : [''],
@@ -190,62 +217,65 @@ let s= this.registerForm.value.assign_to.toString().split(",");
     this.createForm();
     this.categoryGet();
     this.teacherGet();
-    this.firstFormGroup = this.formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this.formBuilder.group({
-      secondCtrl: ['' ],
-      IncludeUnit:['']
-    });
+
   }
   unit:any;
   unitper:any;
 
   createSubject(){
-    
-    this.registerForm.value.status = "true"
+    let obj1 = { a :  "aValue" , b :  "bValue"  };
+let obj2 = Object.assign(this.firstFormGroup.value, this.secondFormGroup.value);
+let obj3 = Object.assign(obj2, this.thridFormGroup.value);
+let obj4 = Object.assign(obj3, this.forthormGroup.value);
 
-   if(this.registerForm.value.hourlyWorking == false){
-  this.registerForm.value.hourlyWorking = "No";
-  this.registerForm.value.subjectType ="D";
-  this.registerForm.value.estimateTime = "0"
-  this.registerForm.value.completed = "0"
+obj4.status = "true"
 
-  this.registerForm.value.completedTimeMinute = "0"
-  this.registerForm.value.estimatedTimeMinute = "0"
+ 
+   if(obj4.hourlyWorking == false){
+    obj4.hourlyWorking = "No";
+    obj4.subjectType ="D";
+    obj4.estimateTime = "0"
+    obj4.completed = "0"
+
+    obj4.completedTimeMinute = "0"
+    obj4.estimatedTimeMinute = "0"
 
 
   }else{
-  this.registerForm.value.hourlyWorking = "Yes";
-  this.registerForm.value.subjectType ="H";
+    obj4.hourlyWorking = "Yes";
+    obj4.subjectType ="H";
 
  }
- if(this.registerForm.value.private == false){
-  this.registerForm.value.private = "No"
-  this.unit = [];
-  this.unitper = [];
-
-  for(var i =0 ;i<this.unitList.length;i++){
-  this.unit.push(this.unitList[i].name);
-  this.unitper.push(this.unitList[i].percentage);
-
-
- }
+ if(obj4.private == false){
+  obj4.private = "No"
+ 
  }else{
-  this.registerForm.value.private = "Yes"
+  obj4.private = "Yes"
   this.unit = [];
   this.unitper=[];
  }
 
-  
-   this.registerForm.value.unit_percent = this.unitper.toString();
-   this.registerForm.value.unit = this.unit.toString();
-   this.registerForm.value.assign_to = this.registerForm.value.assign_to.toString();
- console.log(JSON.stringify(this.registerForm.value))
-this.webservice.SubjectSave(this.registerForm.value).subscribe(res=>{
- 
-this.Route.navigate(['subject'])
-})
+ this.unit = [];
+ this.unitper = [];
+if(this.unitList.length > 0){
+
+
+ for(var i =0 ;i<this.unitList.length;i++){
+ this.unit.push(this.unitList[i].name);
+ this.unitper.push(this.unitList[i].percentage);
+
+
+}
+}
+ obj4.unit_percent = this.unitper.toString();
+ obj4.unit = this.unit.toString();
+ obj4.assign_to = this.registerForm.value.assign_to.toString();
+ console.log(JSON.stringify(obj4))
+ this.webservice.SubjectSave(this.registerForm.value).subscribe(res=>{
+   console.log(res)
+ this.webservice.alertDialog('Successfully created','subject')
+   
+  })
   }
  
 }
