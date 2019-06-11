@@ -3,7 +3,9 @@
 
  
 #teacher {
- 
+    mat-form-field{
+        width:100%;
+    }
     @include media-breakpoint('xs') {
         width: 100%;
     }

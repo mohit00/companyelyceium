@@ -17,6 +17,9 @@ import {
 
 })
 export class CreateSubjectComponent implements OnInit {
+  isLinear = true;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
   registerForm: FormGroup;
   registerFormErrors: any;
   tiles: any;
@@ -187,6 +190,13 @@ let s= this.registerForm.value.assign_to.toString().split(",");
     this.createForm();
     this.categoryGet();
     this.teacherGet();
+    this.firstFormGroup = this.formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this.formBuilder.group({
+      secondCtrl: ['' ],
+      IncludeUnit:['']
+    });
   }
   unit:any;
   unitper:any;

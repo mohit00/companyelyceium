@@ -16,17 +16,20 @@
     <div class =" ">
       <div class =" row" *ngIf="data.type !='note'">
       <div class ="col s12 m12 l12">
-          <mat-form-field>
+          <mat-form-field appearance="outline">
+              <mat-label>Name</mat-label>
 
           <input matInput placeholder="Name" name ="name" formControlName="name">
 </mat-form-field>
       </div>
        <div class ="col s12 m12 l12"  *ngIf ="data.type != 'category'">
-        <mat-form-field  *ngIf ="data.action == 'nothourly'">
+        <mat-form-field  *ngIf ="data.action == 'nothourly'" appearance="outline">
+            <mat-label>percentage</mat-label>
 
         <input matInput placeholder="percentage" name ="percentage" formControlName="percentage">
 </mat-form-field>
-<mat-form-field  *ngIf ="data.action != 'nothourly'">
+<mat-form-field  *ngIf ="data.action != 'nothourly'" appearance="outline">
+    <mat-label>No. Of hour</mat-label>
 
   <input matInput type ="number" placeholder="No. Of hour" name ="percentage" formControlName="percentage">
 </mat-form-field>
@@ -35,13 +38,15 @@
     </div>
     <div class =" row" *ngIf="data.type =='note'">
         <div class ="col s12 m12 l12">
-            <mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
   
             <input matInput placeholder="title" name ="name" formControlName="title">
   </mat-form-field>
         </div>
-         <div class ="col s12 m12 l12"  >
-          <mat-form-field  >
+         <div class ="col s12 m12 l12"> 
+          <mat-form-field   appearance="outline">
+              <mat-label>Description</mat-label>
               <textarea matInput placeholder="Description" formControlName="description"></textarea>
 
    </mat-form-field>

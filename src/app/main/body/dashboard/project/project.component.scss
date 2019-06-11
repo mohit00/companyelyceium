@@ -7,6 +7,11 @@
             flex: 1 1 100%;
         }
 .boxHeight{
+    flex-direction: column !important;
+                            box-sizing: border-box !important;
+                            display: block !important;
+                            flex: 1 1 100% !important;
+                            max-width: 20% !important;
     height: 152px !important;
 }
 .leaveCenter > p {
@@ -17,9 +22,9 @@
         .center {
 
             > .header {
-                height: 160px;
-                min-height: 160px;
-                max-height: 160px;
+              
+                min-height: 80px;
+                max-height: 80px;
 
                 .selected-project {
                     background: rgba(0, 0, 0, 0.12);

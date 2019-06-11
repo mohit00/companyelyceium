@@ -1,3 +1,4 @@
+
 import { Component, OnInit ,ElementRef,ViewChild,VERSION } from '@angular/core';
 import { FuseConfigService } from '../../../core/services/config.service';
 import { fuseAnimations } from '../../../core/animations';
