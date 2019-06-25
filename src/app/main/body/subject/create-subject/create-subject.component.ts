@@ -148,15 +148,15 @@ testss:any;
 test(){
  
 this.testss =[]
-let s= this.registerForm.value.assign_to.toString().split(",");
-  for (var ext in s){
+let s= this.forthormGroup.value.assign_to.toString().split(",");
+   for (var ext in s){
     for(var i =0;i<this.teacherList.length ;i++){
      if(this.teacherList[i].teacherId == s[ext]){
       this.testss.push(this.teacherList[i])
      }
    }
    }
-    if(this.testss.length>0){
+     if(this.testss.length>0){
      this.showClassTeacher = true;
    }else{
     this.showClassTeacher = false;
@@ -271,7 +271,7 @@ if(this.unitList.length > 0){
  obj4.unit = this.unit.toString();
  obj4.assign_to = this.registerForm.value.assign_to.toString();
  console.log(JSON.stringify(obj4))
- this.webservice.SubjectSave(this.registerForm.value).subscribe(res=>{
+ this.webservice.SubjectSave(obj4).subscribe(res=>{
    console.log(res)
  this.webservice.alertDialog('Successfully created','subject')
    

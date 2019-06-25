@@ -38,7 +38,7 @@ export class SubjectDetailNavigationModel implements FuseNavigationModelInterfac
                 ]
             },  {
                 'id'      : 'Calendar Type',
-                'title'   : 'Member',
+                'title'   : 'Teacher',
                 'translate': 'NAV.HOME',
                 
                 'url':'/subject/Detail/Unit',

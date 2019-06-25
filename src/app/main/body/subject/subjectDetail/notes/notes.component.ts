@@ -40,6 +40,7 @@ title:any;
      data: {  type:'note',action:'add' }
   });
  dialogRef.afterClosed().subscribe(result => {
+
    this.noteList();
    });
  
@@ -51,13 +52,20 @@ title:any;
      data: {  type:'note',action:'update',data:data }
   });
  dialogRef.afterClosed().subscribe(result => {
+
    });
  
 
    }
    noteList(){
      this.WebService.notesGET().subscribe(res=>{
+        if(res.data){
         this.dataSource = new MatTableDataSource < Element > (res.data);
+
+       }else{
+        this.dataSource = new MatTableDataSource < Element > ();
+
+                }
 
      })
    }

@@ -79,7 +79,7 @@ this.createnoteForm()
     this.registerForm = this.formBuilder.group({
       title           : ['', Validators.required] ,
       description           : ['', Validators.required] 
-
+ 
    
     });
   
@@ -91,7 +91,18 @@ this.createnoteForm()
 createnote(){
   this.registerForm.value.subjectId = this.webservice.getProjectId.subjectId
   this.webservice.notesSave(this.registerForm.value).subscribe(res=>{
-    alert(JSON.stringify(res))
+     this.dialogRef.close(res.message)
+    this.webservice.alertDialog(res.message,'subject/Detail/notes')
+
+  })
+}
+updatenotefde(){
+  
+  this.registerForm.value.subjectId = this.webservice.getProjectId.subjectId
+  this.webservice.notesUpdate(this.registerForm.value).subscribe(res=>{
+     this.dialogRef.close(res.message)
+    this.webservice.alertDialog(res.message,'subject/Detail/notes')
+
   })
 }
 updatenoteForm(data){

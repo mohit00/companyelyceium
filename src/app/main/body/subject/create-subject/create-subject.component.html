@@ -160,17 +160,20 @@
         </div>
         <div class="col s12 m6 l6" *ngIf ="!forthormGroup.value.private">
                  <div class="col s12 m6 l6">
-            <mat-form-field style ="      margin-left: 23px;
-            width: 92%; 
-            " >
-                <mat-select placeholder="Assign To"  multiple  (selectionChange) ="test()"   formControlName="assign_to"  >
-                  <mat-option *ngFor ="let list of teacherList" [value] ="list.teacherId"  >{{list.fName + ' ' + list.mName + ' ' + list.lName}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-                </div>
+           
+                 
+                <mat-form-field appearance="outline">
+  <mat-label>Assign Teacher</mat-label>
+  <mat-select  multiple (selectionChange) ="test()"   formControlName="assign_to" >
+    <mat-option *ngFor ="let list of teacherList" [value] ="list.teacherId"  >{{list.fName + ' ' + list.mName + ' ' + list.lName}}</mat-option>
+  </mat-select>
+</mat-form-field>
+                 </div>
               <div class="col s12 m6 l6">
           
-                  <mat-form-field style ="           margin-left: 10px "   >
+                  <mat-form-field style ="           margin-left: 10px "  *ngIf ="showClassTeacher"  appearance="outline" >
+                    <mat-label>Class Teacher</mat-label>
+
                       <mat-select placeholder="Class Teacher"   formControlName="classTeacher"  >
                         <mat-option  *ngFor ="let list of testss" [value] ="list.teacherId"  >{{list.fName + ' ' + list.mName + ' ' + list.lName}}</mat-option>
                       </mat-select>

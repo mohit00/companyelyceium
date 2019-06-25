@@ -51,7 +51,7 @@ addUser() {
 
   }
   ngOnInit() {
-    this.getSubjectlist(0,5);
+    this.getSubjectlist(0,20);
   }
 
 }

@@ -72,6 +72,8 @@
                 SUBJECT_NOTES_SAVE:'subject/notes/create',
                 SUBJECT_NOTES_GET:'subject/notes/get',
                 SUBJECT_NOTES_DELETES:'subject/notes/delete',
+                SUBJECT_NOTES_UPDATE:'subject/notes/create',
+
                 UNIT_GET:'subject/unit/get',
                 LESSON_CREATE:'subject/lession/create',
                 LESSON_GET:'subject/lession/list/get',
