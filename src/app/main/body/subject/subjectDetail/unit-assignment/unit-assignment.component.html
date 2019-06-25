@@ -20,18 +20,20 @@
 </mat-card>
            </div>
            <div class ="col s12 m12 l12">
-            <mat-card style ="min-height: 85px;">
+            <mat-card style ="min-height: 85px;
+            margin-top: 21px;">
               <mat-accordion>
                 <mat-expansion-panel *ngFor ="let list of unitList"  (opened)="lession(list)">
                   <mat-expansion-panel-header>
                     <mat-panel-title>
                       {{list.unit}}
                     </mat-panel-title>
+                    
                     <mat-panel-description>
                       {{list.completed}} Completed
                     </mat-panel-description>
                   </mat-expansion-panel-header>
-                  <mat-card>
+                  <mat-card style ="padding: 25px;">
 
                     <div class="col l12 unit-tbl">
                       <div class="col l11 left padding-top-10">

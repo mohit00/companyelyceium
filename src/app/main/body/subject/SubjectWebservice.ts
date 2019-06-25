@@ -105,11 +105,15 @@
      .map(res => < any > res)
      .catch(this.handleError);
     }
-    AssignmentQuestionGet(data): Observable < any > {
-      data.tokenId=this.gettokken;
+    AssignmentQuestionGet( ): Observable < any > {
+      let data = {
+        tokenId:this.gettokken,
+        unitAsId:this.gettunitId.unitId
+      }
+      
      
   
-      console.log(JSON.stringify(data))
+     
        return this._http.post(this.BASE_URL + this.ASSIGNMENT_QUESTION_GET, data)
      .map(res => < any > res)
      .catch(this.handleError);

@@ -230,7 +230,6 @@ let obj4 = Object.assign(obj3, this.forthormGroup.value);
 
 obj4.status = "true"
 
- 
    if(obj4.hourlyWorking == false){
     obj4.hourlyWorking = "No";
     obj4.subjectType ="D";
@@ -270,8 +269,9 @@ if(this.unitList.length > 0){
  obj4.unit_percent = this.unitper.toString();
  obj4.unit = this.unit.toString();
  obj4.assign_to = this.registerForm.value.assign_to.toString();
- console.log(JSON.stringify(obj4))
- this.webservice.SubjectSave(obj4).subscribe(res=>{
+ console.log("Data Send"+ JSON.stringify(obj4))
+ alert(this.picker)
+  this.webservice.SubjectSave(obj4).subscribe(res=>{
    console.log(res)
  this.webservice.alertDialog('Successfully created','subject')
    

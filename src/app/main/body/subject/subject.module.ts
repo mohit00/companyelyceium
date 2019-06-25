@@ -24,7 +24,7 @@ import { CreateSubjectComponent } from './create-subject/create-subject.componen
         }];
 
 @NgModule({
-     declarations: [SubjectComponent, CreateSubjectComponent,UnitDialogComponent 
+     declarations: [SubjectComponent, CreateSubjectComponent,UnitDialogComponent  
         
        ],
     imports     : [

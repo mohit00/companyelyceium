@@ -3,7 +3,7 @@ import { FuseConfigService } from '../../../core/services/config.service';
 import { FuseTranslationLoaderService } from '../../../core/services/translation-loader.service';
 import { fuseAnimations } from '../../../core/animations';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {HomeService} from './homeWeService'
+import {HomeService} from './homeWeService';
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -14,12 +14,12 @@ import {HomeService} from './homeWeService'
 export class NewsComponent implements OnInit {
   registerForm: FormGroup;
   registerFormErrors: any;
-  NewsList:any;
-  showUpdate:boolean;
+  NewsList: any;
+  showUpdate: boolean;
 
   constructor(private translationLoader: FuseTranslationLoaderService,
-    private fuseConfig: FuseConfigService,
-    private formBuilder: FormBuilder,private Webservice: HomeService) { 
+              private fuseConfig: FuseConfigService,
+              private formBuilder: FormBuilder, private Webservice: HomeService) {
     this.fuseConfig.setSettings({
       layout: {
           navigation: 'top',
@@ -27,42 +27,41 @@ export class NewsComponent implements OnInit {
          footer    : 'none'
       }
   });
-  this.registerForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
     title           : ['', Validators.required],
-    text           : ['', Validators.required] 
+    text           : ['', Validators.required]
 
   });
 
   }
-  userId :any;
-  newsCreate(){
-     this.Webservice.NewsSave(this.registerForm.value).subscribe(res=>{
-       alert(JSON.stringify(res));
-       this.newsGet();
-      this.registerForm = this.formBuilder.group({
+  userId: any;
+  newsCreate() {
+     this.Webservice.NewsSave(this.registerForm.value).subscribe(res => {
+        this.newsGet();
+       this.registerForm = this.formBuilder.group({
         title           : ['', Validators.required],
-        text           : ['', Validators.required] 
-    
+        text           : ['', Validators.required]
+
       });
-    
-     })
+
+     });
   }
-  newsGet(){
-    this.Webservice.Newsget().subscribe(res=>{
+  newsGet() {
+    this.Webservice.Newsget().subscribe(res => {
        this.NewsList = res.data;
-       console.log(JSON.stringify(this.NewsList))
-     })
+       console.log(JSON.stringify(this.NewsList));
+     });
   }
-  setFocus(event){
+  setFocus(event) {
     console.log(event);
   }
   ngOnInit() {
     this.userId = this.Webservice.getUser;
-this.newsGet();
-this.showUpdate = false;
+    this.newsGet();
+    this.showUpdate = false;
   }
    editNews(data) {
-     
+
     this.registerForm = this.formBuilder.group({
       title           : [data.title, Validators.required],
       text           : [data.text, Validators.required],
@@ -74,11 +73,11 @@ this.showUpdate = false;
   update() {
     this.Webservice.NewsUpdate(this.registerForm.value).subscribe(res => {
            this.showUpdate = false;
-          this.newsGet();
-          this.registerForm = this.formBuilder.group({
+           this.newsGet();
+           this.registerForm = this.formBuilder.group({
             title           : ['', Validators.required],
-            text           : ['', Validators.required] 
-        
+            text           : ['', Validators.required]
+
           });
 
     });
