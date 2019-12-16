@@ -6,7 +6,7 @@
     {
         this.Sevice =  
             { 
-                BASE_URL: 'http://35.244.57.244/elyceum/',
+                BASE_URL: 'http://134.209.167.153/elyceum/',
                 CREATE_USER: 'user/signup',
                 USER_LOGIN: 'user/login',
                 ADD_USER : 'user/add',
