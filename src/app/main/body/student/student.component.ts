@@ -106,10 +106,9 @@ this.semList = res.data;
   depList:any;
   addUser(){
     this.webService.setDepartList(this.depList);
-    alert(this.sessList)
+     
     this.webService.setsessList(this.sessList);
-    alert(JSON.stringify(this.webService.getsessList))
-    this.Router.navigate(['/student/Add']);
+     this.Router.navigate(['/student/Add']);
     
   //   let dialogRef = this.dialog.open(StudentDialogComponent, {
   //     height: '550px',
