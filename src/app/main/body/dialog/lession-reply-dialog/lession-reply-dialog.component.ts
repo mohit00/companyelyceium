@@ -27,11 +27,14 @@ export class LessionReplyDialogComponent implements OnInit {
   ngOnInit() {
   }
   onNoClick(){
-    
+    this.dialogRef.close(false);
+
   }
   UpdateTask(){
      this.webservice.LessionPostStatus( this.registerForm.value).subscribe(res=>{
-       alert(JSON.stringify(res))
+        this.webservice.alertDialog('Successfully created','subject/Detail/lession/detail')
+       this.dialogRef.close(true);
+
      })
   }
 }

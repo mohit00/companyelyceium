@@ -270,8 +270,7 @@ if(this.unitList.length > 0){
  obj4.unit = this.unit.toString();
  obj4.assign_to = this.registerForm.value.assign_to.toString();
  console.log("Data Send"+ JSON.stringify(obj4))
- alert(this.picker)
-  this.webservice.SubjectSave(obj4).subscribe(res=>{
+   this.webservice.SubjectSave(obj4).subscribe(res=>{
    console.log(res)
  this.webservice.alertDialog('Successfully created','subject')
    

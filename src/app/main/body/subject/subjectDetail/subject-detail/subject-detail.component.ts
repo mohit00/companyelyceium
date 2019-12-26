@@ -12,10 +12,10 @@ import { fuseAnimations } from '../../../../../core/animations';
 export class SubjectDetailComponent implements OnInit {
   single :any;
 projectdetail:any;
-  constructor(private WebService:SubjectService,private fuseConfig: FuseConfigService) {  
+  constructor(private WebService:SubjectService,private fuseConfig: FuseConfigService) { 
+
     this.projectdetail = this.WebService.getProjectId;
-    console.log(JSON.stringify(this.projectdetail))
-    this.single = [
+     this.single = [
       {
         "name": "Subject",
         "value": 50
